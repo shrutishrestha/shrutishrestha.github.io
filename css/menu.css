@@ -1,0 +1,80 @@
+.user-profile-menu ul{
+	clear:both;
+}
+
+.user-profile-menu ul{
+	float:right;
+}
+
+.user-profile-menu ul li {
+	float:left;
+	font-size:9px;
+	background:url("../images/line.png") repeat-y right ; 
+	list-style:none;
+	margin-top:8px;
+}
+
+.user-profile-menu ul li:last-child{
+	float:left;
+	background:none ; 
+	 list-style:none;
+}
+
+.user-profile-menu ul li:last-child a{
+	padding-right: 0px;
+
+}
+
+.user-profile-menu ul li a{
+	color: black;
+	text-decoration: none;
+	padding-right:5px;
+	padding-left:5px;
+}
+
+
+.menu.left .active{
+	background:#2fc1da;
+	
+}
+.menu.left .active a{
+	
+	color:#fff;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color: black;
+	line-height: 40px;
+}
+
+.menu.left ul li:first-child{
+	padding-left:-6px;
+}
+
+.menu.left ul li:hover {
+	background:#2fc1da;
+	}
+
+.menu.left ul li:hover a{
+	color:#fff;
+}
+
+
+
+.menu.right li a{
+	float:left;
+
+}
+
+.menu.right .inactive a{
+	color: grey;
+	float:left;
+
+}
+
+.menu.right img{
+	margin-top: 12px;
+	margin-right:8px;
+}
+
