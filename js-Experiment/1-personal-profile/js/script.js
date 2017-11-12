@@ -33,9 +33,7 @@ maincontent.appendChild(detailsul);
 detailKeys=Object.keys(details);
 for(i=0;i<detailKeys.length;i++)
 {
-	
 	var key=detailKeys[i];
-	console.log("-----"+details[key]);
 	var detailsli=document.createElement("li");
 	detailsli.style.background="#FFFAFA";
 	detailsli.style.listStyle="none";

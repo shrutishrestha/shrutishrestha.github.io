@@ -40,11 +40,6 @@ play.appendChild(playBtn);
 
 
 
-
-
-
-
-
 function Ant(parent){
 
 	var that = this;
@@ -58,7 +53,7 @@ function Ant(parent){
 	this.width="50px";
 	this.height="50px";
 
-	// this.setPosition = (0,0)
+	
 
 	this.create=function(){
 		
@@ -101,29 +96,16 @@ function Ant(parent){
 			this.x=this.x+this.dx;
 			this.element.style.left=this.x+"px";
 	}
-	
-
-	
 }
 
 
 
 function changeDirection(antA,antB){
-	// tempAx=antA.dx;
-	// tempAy=antA.dy;
-
 	antA.dx=-(antA.dx);
 	antB.dx=-(antB.dx);
 	antA.dy=-(antA.dy);
 	antB.dy=-(antB.dy);
-
-	
-	// antA.update();
-	// antB.update();
-
-
-
-}
+	}
 
 function collisionDetection(antA,antB){
 	w=parseInt(antA.x);
@@ -188,28 +170,22 @@ function EndGame(){
 restartBtn.onclick=function(){
 	start();
 }
-
-
-
 }
 
 playBtn.onclick=function(){
 
-	console.log(">>>>>>>>>>>")
 	start();
 } 
 
 var i=0;
 function start(){
-	
-	
 	var antArray=[];
 
-for(var i=0;i<10;i++){
-	var ant=new Ant("parent");
-	antArray.push(ant);
-	ant.create();
-}
+	for(var i=0;i<10;i++){
+		var ant=new Ant("parent");
+		antArray.push(ant);
+		ant.create();
+	}
 	
 
  
@@ -217,13 +193,9 @@ for(var i=0;i<parent.children.length;i++) {
 	 counter=0;
 
 		 parent.children[i].onclick =function(){
-		 	
-		 	
-		parent.removeChild(this); 
+		 parent.removeChild(this); 
 		counter=counter+1;
-		console.log("antArray.length--------------"+antArray.length);
-		console.log("counter----"+counter);
- 		 // this.style.backgroundColor='red';
+	
  		 if(counter==antArray.length+1)
 			{	
 				EndGame();
@@ -234,30 +206,15 @@ for(var i=0;i<parent.children.length;i++) {
 
 setInterval(function(){
 	for(i = 0 ; i < 10 ; i++ ){
-
-		
 		antArray[i].update();
-		// a=antArray[i].dx;
-		// b=antArray[i].dy;
-
 		var antA = antArray[i];
-		
-					
-
 		for(j=0;j<10;j++){
-
 			if (j !== i) {
 				var antB=antArray[j];
-			
 				
-
 				if(collisionDetection(antA,antB)){
-					
 					changeDirection(antA,antB);
-					
-
-				
-				}
+						}
 				
 			}
 

@@ -20,7 +20,6 @@ imageabsolute.style.height="200px";
 imageabsolute.style.opacity="1";
 imageabsolute.style.background="red";
 imageabsolute.style.overflow="hidden";
-
 idiv.appendChild(imageabsolute);
 
 
@@ -32,8 +31,6 @@ divul.style.top="-15px";
 divul.style.left="-43px";
 divul.style.width="700px";
 divul.style.height="200px";
-// divul.style.top="0px";
-// divul.style.left="0px";
 imageabsolute.appendChild(divul);
 var imageul=document.createElement("ul");
 
@@ -41,11 +38,10 @@ divul.appendChild(imageul);
 counter=1;
 a=["a","b","c"]
 imagelist=["url(images/a.jpg)","url(images/b.jpeg)","url(images/c.jpeg)"];
-for(i=0;i<3;i++){//creating li
+for(i=0;i<3;i++){
 	var imageli=document.createElement("li");
 	imageli.setAttribute("id",a[i]);
 	imageli.style.backgroundImage=imagelist[i];
-	// imageli.style.position="relative";
 	imageli.style.width="200px";
 	imageli.style.height="200px";
 	imageli.style.float="left";	
@@ -55,13 +51,14 @@ for(i=0;i<3;i++){//creating li
 }
 
 
-var div = document.getElementById("alone");//getting the absolute div
+var div = document.getElementById("alone");
 butonright=document.createElement('button');
 butonright.style.width="100px";
 butonright.setAttribute("value","previous");
 butonright.style.height="50px";
 butonright.innerHTML="PREVIOUS";
 bodies.appendChild(butonright);
+
 //for button
 buton=document.createElement('button');
 buton.style.width="100px";
