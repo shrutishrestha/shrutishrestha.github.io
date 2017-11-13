@@ -111,15 +111,12 @@
 	bottomEdgeB=o+p;
 
 	if( ( rightEdgeA>leftEdgeB )&&(leftEdgeA<rightEdgeB)&&(bottomEdgeA>topEdgeB)&&(topEdgeA<bottomEdgeB) ){
-		console.log(":::::");
 		return true;
 	}
 		}
 
 		this.collisionDetection1=function(antA,antB){
-		console.log("checkcollision"+antA);
-		console.log("checkcollision"+antA.bottom);
-		console.log("checkcollision"+antA.height);
+		
 		y=parseInt(antA.bottom);
 		z=parseInt(antA.height);
 		o=parseInt(antB.top);
@@ -130,11 +127,8 @@
 		topEdgeB=o;
 		bottomEdgeB=o+p;
 
-		console.log("mmmmmm"+bottomEdgeA);
-		console.log("mmmmmm"+bottomEdgeB)
-
+		
 		if( (bottomEdgeA>bottomEdgeB) ){
-			console.log("yoyomannnnnnnnnnnnn")
 			parent.removeChild(this);
 			return true;
 		}
@@ -160,7 +154,6 @@
 		this.updateBullet=function(){
 			this.bottom=this.bottom+this.dy
 				this.bullet.style.bottom=this.bottom+"px";
-				console.log("++++++++++="+	this.bullet.style.bottom)
 		}
 	}
 
@@ -289,7 +282,6 @@
 
 			var carGame=new CarGame('parent');
 			carGame.init();
-			// carGame.play();
 		}
 
 
