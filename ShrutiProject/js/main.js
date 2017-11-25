@@ -260,9 +260,14 @@ function RouteProvider(userRoutes,routeFunction){
     this.check=function(){   
      
         mainIndex.fragmentId = location.hash.substr(1);
-       
+        keyUserRoute=Object.keys(userRoutes);
+       if(keyUserRoute[0]==null){
+        console.log("user routes empty")
+        routeFunction.navigate(mainIndex.fragmentId);
+       }
       
-        if(userRoutes.hasOwnProperty(mainIndex.fragmentId)){
+      
+        else if(userRoutes.hasOwnProperty(mainIndex.fragmentId)){
           
             templateObject = userRoutes[mainIndex.fragmentId];
             templateKeyArray = Object.keys(templateObject);
