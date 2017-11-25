@@ -1,13 +1,13 @@
 <div ngcontroller="repeatController">
-<div init='friends=[{"name":"Shruti","age":21,"location":"ktm"},{"name":"Nishma","age":17,"location":"sanepa"}]'>
-</div>
+<!--  <div init='friends=[{"name":"Shruti","age":21,"location":"ktm"},{"name":"Nishma","age":17,"location":"sanepa"}]'>
+ --> 
 
-<div ngrepeat="friend in friends">
+<div ngrepeat="cust in customer">
   <ul>
-      <li ngdetail="friend.name"></li>
-      <li ngdetail="friend.age"></li>
-      <li ngdetail="friend.location"></li>
-  </ul>
-</div>
+      <li ngdetail="cust.name"></li>
+      <li ngdetail="cust.city"></li>
+<!--       <li ngdetail="cust.location"></li>
+ -->  </ul>
 </div>
 
+</div>
