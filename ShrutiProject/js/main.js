@@ -1,13 +1,13 @@
 function MainIndex() {
-  var scope;
   var repeat;
   var databind;
   this.scope = {};
   var that = this;
   var routeProvider;
   var routeFunction;
+  var customDirective;
   this.elements = [];
-  var userRoutes = {};
+  this.userRoutes = {};
   this.tempScope = {};
   this.element = null;
   this.controllerName;
@@ -15,25 +15,47 @@ function MainIndex() {
   this.fragmentId = null;  
   this.mainElement = null;
   this.userController = {};
+  this.currentController;
   
   this.initialize = function() {
+    console.log("1");
     that.mainElement = document.querySelector('[application]');
-    routeProvider = new RouteProvider(userRoutes);
+    mainIndex.elements = mainIndex.mainElement.querySelectorAll('[ngcontroller]');
+    routeProvider = new RouteProvider(that.userRoutes);
     routeFunction = new RouteFunction(routeProvider);
-    scope = {}
-    
+    customDirective = new CustomDirective();
+    repeat = new Repeating();
+    var scope = {}
+
     that.route = function(routeCallback) {
       routeCallback(routeProvider);
     }
-    
+
     that.controller = function(controllerName, controllerCallbackFunction) {
-      controllerCallbackFunction(scope);
-      that.userController[controllerName] = scope;
+      that.scope[controllerName]={};
+      controllerCallbackFunction(that.scope[controllerName]);
+      that.userController[controllerName] = that.scope[controllerName];
       that.tempScope = that.userController[controllerName];
+      console.log("all controllers");
+      console.log(that.userController);
     }
+
+    that.directive = function(directiveName, directiveFunction){
+      console.log("directive calling =============")
+      var nameDirective;
+      nameDirective=customDirective.renderDirectiveName(directiveName);//my-custom-url
+      functionDirective=directiveFunction();//object returned from function
+    
+      customDirective.setDirective(nameDirective,functionDirective,repeat,routeFunction,routeProvider);
+      
+      
+    }
+
             
     if (!location.hash) {
+      console.log("6")
       location.hash = "#home";
+      that.fragmentId = location.hash.substr(1);
       routeProvider.check();
     }
      
@@ -41,10 +63,11 @@ function MainIndex() {
     databind.arrayModelsValues();
 
 
-    repeat = new Repeating();
+
 
     window.onload = function() {
       routeProvider.check();
+      routeFunction.currentRouteInfo();
       setTimeout(repeat.initial,10);
     }
   
@@ -58,6 +81,75 @@ function MainIndex() {
     }
 }
 
+
+function CustomDirective(){
+  var a;
+  var nameDirective;
+
+  this.renderDirectiveName = function(directiveName){
+    console.log("directuvdsvds----------"+directiveName)
+    nameDirective=directiveName;
+     console.log("nameDirective----------"+nameDirective)
+   for(i = 0; i < nameDirective.length; i++){
+      a = nameDirective.charAt(i);
+      if(a == a.toUpperCase()){
+        nameDirective = nameDirective.replace(a,"-"+ a.toLowerCase());
+      }
+    }
+      return (nameDirective);
+  }
+
+  this.setDirective=function(nameDirective,functionDirective,repeat,routeFunction,routeProvider){
+    var directive;
+    var parentOfDirective;
+    var currentControllerObject;
+    var keys;
+   
+
+    directive = document.getElementsByTagName(nameDirective)[0];
+    parentOfDirective = directive.parentElement;
+    controllerName = parentOfDirective.getAttribute('ngcontroller');
+    currentControllerObject = mainIndex.userController[controllerName];
+    keys = Object.keys(currentControllerObject);
+    console.log("keys");
+    console.log(keys);
+  
+    if(mainIndex.userController.hasOwnProperty(controllerName)){
+      refracterString=routeProvider.routeUrlSplit(functionDirective["templateUrl"])
+      routeFunction.getContent(refracterString, function (content) {
+        console.log("refracterString");
+        console.log(refracterString);
+        directive.innerHTML=content;
+        for(keyCount=0; keyCount<keys.length; keyCount++){
+          directive.innerHTML = directive.innerHTML.replace('{{' + keys[keyCount] + '}}' , currentControllerObject[keys[keyCount]]);
+        }
+    
+    });
+
+      
+
+      }
+
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function DataBind() {
   var that = this;
   var models = [];
@@ -66,18 +158,21 @@ function DataBind() {
   var valueList = [];
 
   this.arrayModelsValues = function() {
-    mainIndex.elements = mainIndex.mainElement.querySelectorAll('[ngcontroller]');
+    
     for (element = 0; element < mainIndex.elements.length; element++) {
       mainIndex.element = mainIndex.elements[element];
-      modelList = mainIndex.element.querySelectorAll('[ngmodel]');
-      valueList = mainIndex.element.querySelectorAll('[ngvalue]');
-      modelList.forEach(model=> {
-        models.push(model.getAttribute('ngmodel'));
-      })
-      valueList.forEach(value=> {
-        ngvalues.push(value.getAttribute('ngvalue'));
-      })
-      that.dataBindingFunction();
+      checkChild = mainIndex.element.querySelectorAll('[ngmodel]');
+      if (checkChild[0] != null){
+        modelList = mainIndex.element.querySelectorAll('[ngmodel]');
+        valueList = mainIndex.element.querySelectorAll('[ngvalue]');
+        modelList.forEach(model=> {
+          models.push(model.getAttribute('ngmodel'));
+        })
+        valueList.forEach(value=> {
+          ngvalues.push(value.getAttribute('ngvalue'));
+        })
+        that.dataBindingFunction();
+      }
     }
   }
 
@@ -121,23 +216,37 @@ function Repeating() {
   var repeatAttributeArray = {};
 
   this.initial = function() {
-    mainIndex.elements = mainIndex.mainElement.querySelectorAll('[ngcontroller]');
+   
+    
     for (element=0; element < mainIndex.elements.length; element++) {
+
       mainIndex.element = mainIndex.elements[element];
-      controller  =  mainIndex.element.getAttribute('ngcontroller');//repeating
-      collectionName = Object.keys(mainIndex.userController[controller])//customer
-      mainIndex.mainScope[controller] = {};
-      tempmainScope = mainIndex.mainScope[controller];
-      if (mainIndex.userController.hasOwnProperty(controller)) {
-        currentController = mainIndex.userController[controller];
-        tempmainScope = currentController;
+      controller=mainIndex.currentController;
+      console.log("repeating-------")
+      console.log(controller);
+      checkChild = mainIndex.element.querySelectorAll('[ngrepeat]');
+      console.log("checkChild");
+      console.log(checkChild);
+      if(checkChild[0]!=null){
+        console.log("m inside repeat")
+      
+        collectionName = Object.keys(mainIndex.userController[controller])//customer
+        console.log("collectionName");
+        console.log(collectionName);
+        mainIndex.mainScope[controller] = {};
+        tempmainScope = mainIndex.mainScope[controller];
+        if (mainIndex.userController.hasOwnProperty(controller)) {
+          console.log("chiryooooooooooooooooo");
+          currentController = mainIndex.userController[controller];
+          tempmainScope = currentController;
+        }
+        ngrepeatQuery = mainIndex.element.querySelectorAll('[ngrepeat]');
+        ngrepeatQuery.forEach(ngrepeat => {
+        ngrepeatAttribute.push(ngrepeat.getAttribute('ngrepeat'));
+        })
+        that.seperateRepeatAttribute();
+        that.setView();
       }
-      ngrepeatQuery = mainIndex.element.querySelectorAll('[ngrepeat]');
-      ngrepeatQuery.forEach(ngrepeat => {
-      ngrepeatAttribute.push(ngrepeat.getAttribute('ngrepeat'));
-      })
-      that.seperateRepeatAttribute();
-      that.setView();
     }
   }
 
@@ -195,27 +304,31 @@ function RouteProvider(userRoutes, routeFunction) {
   var templateUrl;
   var that = this;
   var routeUrlName;
-  var templateObject = [];
-  var templateKeyArray = [];
+  var currentRoute;
+  var currentRouteInfo;
+  var templateControllerObject = [];
+  var templateControllerKeyArray = [];
   var routeFunction = new RouteFunction();
   
-  this.when = function(value, url) {
+  this.when = function(value, valueObj) {
     browserUrl = value;
-    templateUrl = url
-    userRoutes[browserUrl] = templateUrl;
+    valueObject = valueObj;//{ templateUrl,controller  }
+    userRoutes[browserUrl] = valueObject;//0->templateURl,,,1->controller
   }
         
   this.check = function() {   
+    console.log("7");
     mainIndex.fragmentId = location.hash.substr(1);
+  
     keyUserRoute = Object.keys(userRoutes);
     if (Object.keys(userRoutes).length === 0) {
       routeFunction.navigate(mainIndex.fragmentId);
     }
     else if (userRoutes.hasOwnProperty(mainIndex.fragmentId)) {
-      templateObject = userRoutes[mainIndex.fragmentId];
-      templateKeyArray = Object.keys(templateObject);
-      templateKey = templateKeyArray.toString();  
-      routeUrl = templateObject[templateKey];
+      templateControllerObject = userRoutes[mainIndex.fragmentId];
+      templateControllerKeyArray = Object.keys(templateControllerObject);
+      templateKey = templateControllerKeyArray[0].toString();  
+      routeUrl = templateControllerObject[templateKey];
       routeUrlName = that.routeUrlSplit(routeUrl);
       routeFunction.navigate(routeUrlName);
     }
@@ -266,6 +379,17 @@ function RouteFunction(routeProvider) {
         callback(content);
       });
     }
+     that.currentRouteInfo();
+  }
+
+  this.currentRouteInfo=function(){
+  
+    var currentRouteInfo={};
+    currentRoute=mainIndex.userRoutes;
+    currentRouteInfo=currentRoute[mainIndex.fragmentId];
+    if(currentRouteInfo!=null){
+      mainIndex.currentController=currentRouteInfo["controller"]
+    }
   }
 
   this.setActiveLink = function(fragmentId) {
@@ -283,12 +407,14 @@ function RouteFunction(routeProvider) {
   }
 
   this.navigate = function(routeUrlName) {
+    console.log("9-navigate")
     var contentDiv = document.getElementById("content");
     that.getContent(routeUrlName, function (content) {
       contentDiv.innerHTML = content;
       mainIndex.initialize();
     });
     that.setActiveLink(routeUrlName);
+   
   }
 
 }
