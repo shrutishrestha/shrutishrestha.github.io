@@ -1,11 +1,10 @@
-<div ngcontroller="repeatController">
+<h2>NGREPEAT</h2>
+<div ngcontroller="repeatController" class="studentRepeat">
 
-
-<div ngrepeat="cust in customer">
-  <ul>
-      <li ngdetail="cust.name"></li>
-      <li ngdetail="cust.city"></li>
-  </ul>
+<div ngrepeat="student in students"  >
+<div ngdetail="student.roll" class="rollRepeat clrfix"></div> 
+<img src="images/student.roll.png" ngdetail="student.roll" class="imgRepeat clrfix"/>
+<a href="#user/student.name" ngdetail="student.name" class="nameRepeat clrfix"></a>
 </div>
 
 </div>

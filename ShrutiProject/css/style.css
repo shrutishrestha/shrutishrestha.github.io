@@ -1,0 +1,159 @@
+
+h1{
+  font-weight: bold;
+  font-size:40px;
+  width:55%;
+  float:left;
+  padding-left:25%;
+}
+
+.home{
+  width:500px;
+  margin:auto;
+}
+
+.home ul{
+  list-style-type: circle;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top:20px;
+
+}
+
+.home ul  li{
+  list-style-type: circle;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top:10px;
+
+}
+
+
+.table{
+  padding:10px;
+  margin-bottom: 5px;
+  float:right;
+  width:20%;
+
+}
+
+body{
+  background-color: #90EE90;
+}
+
+h2{
+margin:auto;
+text-align: center;
+font-size: 30px;
+}
+
+a{
+  text-decoration: none;
+  color:black;
+  float:left;
+
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+#navbar{
+  width:100%;
+    margin-top:20px; 
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+
+#navbar a {
+    display: block;
+    color: white;
+    width:47%;
+    float:left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#navbar a:hover {
+    background-color: #111;
+}
+
+input{
+  width:500px;
+  height:40px;
+  margin-bottom: 50px;
+   margin-bottom: 50px;
+}
+
+#TwoWay{
+  /*border:2px solid black;
+  border-radius: 3px: */
+  padding: 50px;
+  margin:0 200px;
+  
+
+
+}
+
+#content{
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+
+.repeat{
+  
+  margin-top: 5px;
+  
+}
+
+
+.rollRepeat{
+  width:100px;
+   margin-top:20px;
+
+  }
+
+.nameRepeat{
+
+  margin-left: 40px;
+
+}
+
+.imgRepeat{
+   width:200px;
+  height:200px;
+  float:left;
+  margin-left:60px;
+
+
+}
+
+.studentRepeat{
+    width: 600px;
+    margin-left: 10%;
+}
+
+
+
+.user-detail{
+  margin-left:40px;
+}
+
+.detail{
+  margin-top:10px;
+}
+
+.userImg{
+  width:300px;
+}
+

@@ -3,38 +3,33 @@
 <head>
   <meta charset="utf-8">
   <title>Intern Project</title>
+   <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+ 
 
   
 </head>
 <body>
 
 <div application="">
-  <div id="navbar">
+<div ngcontroller="CustomDirectiveController" class="custom clrfix">
+<my-custom-url></my-custom-url>
+</div>
+
+
+<div id="navbar">
     <a href="#pageData">2WayDataBinding</a>
     <a href="#pageRepeat">Repeat</a>
-    <a href="#pageTable">Table</a>
-  </div>
+</div>
 
-
- 
-
-  <div view="view" id="content"></div>
-  
-<div ngcontroller="CustomDirectiveController">
-    <h2>Custom directive with external page</h2>
-    <my-custom-url></my-custom-url>
-  </div>
-  
-
- 
+<div view="view" id="content"></div>
 </div>
 
 
  
 
   <script src="js/main.js"></script>
-
-  <script type="text/javascript" src="js/user.js"></script>
+ <script type="text/javascript" src="js/user.js"></script>
 
 
 </body>

@@ -6,6 +6,9 @@ function MainIndex() {
   var routeProvider;
   var routeFunction;
   var customDirective;
+  var nameDirective;
+  var  functionDirective;
+  this.routeParam ={};
   this.elements = [];
   this.userRoutes = {};
   this.tempScope = {};
@@ -18,9 +21,8 @@ function MainIndex() {
   this.currentController;
   
   this.initialize = function() {
-    console.log("1");
     that.mainElement = document.querySelector('[application]');
-    mainIndex.elements = mainIndex.mainElement.querySelectorAll('[ngcontroller]');
+    that.elements = that.mainElement.querySelectorAll('[ngcontroller]');
     routeProvider = new RouteProvider(that.userRoutes);
     routeFunction = new RouteFunction(routeProvider);
     customDirective = new CustomDirective();
@@ -36,24 +38,18 @@ function MainIndex() {
       controllerCallbackFunction(that.scope[controllerName]);
       that.userController[controllerName] = that.scope[controllerName];
       that.tempScope = that.userController[controllerName];
-      console.log("all controllers");
-      console.log(that.userController);
+     
     }
 
     that.directive = function(directiveName, directiveFunction){
-      console.log("directive calling =============")
-      var nameDirective;
+    
       nameDirective=customDirective.renderDirectiveName(directiveName);//my-custom-url
       functionDirective=directiveFunction();//object returned from function
-    
       customDirective.setDirective(nameDirective,functionDirective,repeat,routeFunction,routeProvider);
-      
-      
     }
 
             
     if (!location.hash) {
-      console.log("6")
       location.hash = "#home";
       that.fragmentId = location.hash.substr(1);
       routeProvider.check();
@@ -61,14 +57,13 @@ function MainIndex() {
      
     databind = new DataBind();
     databind.arrayModelsValues();
-
-
-
+      
 
     window.onload = function() {
       routeProvider.check();
       routeFunction.currentRouteInfo();
       setTimeout(repeat.initial,10);
+       setTimeout(repeat.doDetail,10)
     }
   
     window.addEventListener('hashchange' , that.updateService , false);
@@ -76,8 +71,13 @@ function MainIndex() {
       
     this.updateService = function() {
       routeProvider.check();
+      routeFunction.currentRouteInfo();
+
+      
+      
       databind.arrayModelsValues();
       setTimeout(repeat.initial,10);
+       setTimeout(repeat.doDetail,10)
     }
 }
 
@@ -87,9 +87,7 @@ function CustomDirective(){
   var nameDirective;
 
   this.renderDirectiveName = function(directiveName){
-    console.log("directuvdsvds----------"+directiveName)
     nameDirective=directiveName;
-     console.log("nameDirective----------"+nameDirective)
    for(i = 0; i < nameDirective.length; i++){
       a = nameDirective.charAt(i);
       if(a == a.toUpperCase()){
@@ -105,49 +103,33 @@ function CustomDirective(){
     var currentControllerObject;
     var keys;
    
-
-    directive = document.getElementsByTagName(nameDirective)[0];
-    parentOfDirective = directive.parentElement;
-    controllerName = parentOfDirective.getAttribute('ngcontroller');
-    currentControllerObject = mainIndex.userController[controllerName];
-    keys = Object.keys(currentControllerObject);
-    console.log("keys");
-    console.log(keys);
-  
-    if(mainIndex.userController.hasOwnProperty(controllerName)){
-      refracterString=routeProvider.routeUrlSplit(functionDirective["templateUrl"])
-      routeFunction.getContent(refracterString, function (content) {
-        console.log("refracterString");
-        console.log(refracterString);
-        directive.innerHTML=content;
-        for(keyCount=0; keyCount<keys.length; keyCount++){
-          directive.innerHTML = directive.innerHTML.replace('{{' + keys[keyCount] + '}}' , currentControllerObject[keys[keyCount]]);
-        }
+    for (element=0; element < mainIndex.elements.length; element++) {
+      mainIndex.element=mainIndex.elements[element];
+      pageController=mainIndex.element.getAttribute('ngcontroller');
+      realController=mainIndex.currentController;
+     
     
-    });
-
-      
-
+      checkChild = document.getElementsByTagName(nameDirective);
+      if(checkChild!=null){
+        directive = document.getElementsByTagName(nameDirective)[0];
+        parentOfDirective = directive.parentElement;
+        controllerName = parentOfDirective.getAttribute('ngcontroller');
+        currentControllerObject = mainIndex.userController[controllerName];
+        keys = Object.keys(currentControllerObject);
+       
+        if(mainIndex.userController.hasOwnProperty(controllerName)){
+          refracterString=routeProvider.routeUrlSplit(functionDirective["templateUrl"])
+          routeFunction.getContent(refracterString, function (content) {
+            directive.innerHTML=content;
+            for(keyCount=0; keyCount<keys.length; keyCount++){
+              directive.innerHTML = directive.innerHTML.replace('{{' + keys[keyCount] + '}}' , currentControllerObject[keys[keyCount]]);
+            }
+          });
+        }
       }
-
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 function DataBind() {
@@ -156,6 +138,7 @@ function DataBind() {
   var ngvalues = [];
   var modelList = [];
   var valueList = [];
+  var parent;
 
   this.arrayModelsValues = function() {
     
@@ -163,6 +146,7 @@ function DataBind() {
       mainIndex.element = mainIndex.elements[element];
       checkChild = mainIndex.element.querySelectorAll('[ngmodel]');
       if (checkChild[0] != null){
+       
         modelList = mainIndex.element.querySelectorAll('[ngmodel]');
         valueList = mainIndex.element.querySelectorAll('[ngvalue]');
         modelList.forEach(model=> {
@@ -171,12 +155,13 @@ function DataBind() {
         valueList.forEach(value=> {
           ngvalues.push(value.getAttribute('ngvalue'));
         })
-        that.dataBindingFunction();
+        console.log("ngvalues"+ngvalues);
+        that.dataBindingFunction(mainIndex.element);
       }
     }
   }
 
-  this.dataBindingFunction = function() {
+  this.dataBindingFunction = function(melement) {
     models.forEach(model=> {
       var index = models.indexOf(model);
       elements = modelList[index];
@@ -194,6 +179,8 @@ function DataBind() {
       };
     });
   }
+
+
 }
 
 
@@ -214,43 +201,97 @@ function Repeating() {
   var ngrepeatAttribute = [];
   var ngdetailAttribute = [];
   var repeatAttributeArray = {};
+  var count=0;
 
   this.initial = function() {
-   
-    
     for (element=0; element < mainIndex.elements.length; element++) {
-
       mainIndex.element = mainIndex.elements[element];
       controller=mainIndex.currentController;
-      console.log("repeating-------")
-      console.log(controller);
       checkChild = mainIndex.element.querySelectorAll('[ngrepeat]');
-      console.log("checkChild");
-      console.log(checkChild);
+        
       if(checkChild[0]!=null){
-        console.log("m inside repeat")
-      
-        collectionName = Object.keys(mainIndex.userController[controller])//customer
-        console.log("collectionName");
-        console.log(collectionName);
+        mainIndex.userController[controller]
+       
+        collectionName = Object.keys(mainIndex.userController[controller])
         mainIndex.mainScope[controller] = {};
         tempmainScope = mainIndex.mainScope[controller];
+
         if (mainIndex.userController.hasOwnProperty(controller)) {
-          console.log("chiryooooooooooooooooo");
           currentController = mainIndex.userController[controller];
           tempmainScope = currentController;
         }
         ngrepeatQuery = mainIndex.element.querySelectorAll('[ngrepeat]');
         ngrepeatQuery.forEach(ngrepeat => {
-        ngrepeatAttribute.push(ngrepeat.getAttribute('ngrepeat'));
+          ngrepeatAttribute.push(ngrepeat.getAttribute('ngrepeat'));
         })
         that.seperateRepeatAttribute();
         that.setView();
+        that.doDetail(); 
       }
     }
   }
 
+  this.doDetail = function(){
+    var currentDetail;
+    var innerBinds;
+    var attributes;
+    var allDetails;
+    var bindAttr;
+    var index;
+    var key;
+         for (elem=0; elem < mainIndex.elements.length; elem++) {
+        
+
+      mainIndex.element = mainIndex.elements[elem];
+      controller=mainIndex.currentController;
+    
+      allDetails = mainIndex.element.querySelectorAll('[ngdetail-all]');
+    
+    if(allDetails!=null){
+    
+      for(var i=0;i<allDetails.length;i++){
+        currentDetail = allDetails[i];
+        attributes = (currentDetail.getAttribute('ngdetail-all')).split('in');
+        collectionName = attributes[1].trim();
+        userVariable = attributes[0].split('.') 
+        key = userVariable[1].trim();     //key is property 
+        index = mainIndex.routeParam[key].trim(); //specific key that is provided by user
+        controllerName = mainIndex.currentController;
+        tempScope = mainIndex.mainScope[controllerName];
+     
+        if (mainIndex.userController.hasOwnProperty(controllerName)) {
+          tempScope = mainIndex.userController[controllerName];
+        }
+       
+        if(tempScope.hasOwnProperty(collectionName)){ 
+          for(var i=0;i<tempScope[collectionName].length;i++){
+          var la=tempScope[collectionName][i];
+         
+            if(tempScope[collectionName][i][key] == index){
+              innerBinds = currentDetail.querySelectorAll('[ngdetail]');
+              that.removeElements(currentDetail,innerBinds);
+
+              for(var noOfBinds=0;noOfBinds<innerBinds.length;noOfBinds++){
+
+                bindAttribute = (innerBinds[noOfBinds].getAttribute('ngdetail')).split(".");
+                userLoopVariable=bindAttribute[0];
+                bindAttr = bindAttribute[1];
+                
+                if(tempScope[collectionName][i].hasOwnProperty(bindAttr)){ 
+                  that.replicateNode(currentDetail , innerBinds[noOfBinds] , i , bindAttr);
+                }
+              }
+            }
+          } 
+        }
+      }
+    }
+  }
+}
+
+
   this.seperateRepeatAttribute = function() {
+    
     for (ngrepeatPosition = 0 ; ngrepeatPosition<ngrepeatAttribute.length ; ngrepeatPosition++) {
       currentRepeatAttribute = ngrepeatAttribute[ngrepeatPosition];
       attributes = currentRepeatAttribute.split('in');
@@ -261,35 +302,66 @@ function Repeating() {
   }
 
   this.setView = function() {
+  
     var key;
     for (i = 0; i < ngrepeatQuery.length; i++) {
-      parentNode = ngrepeatQuery[i];   
+      currentRepeat = ngrepeatQuery[i];   
+      parentNode=currentRepeat;
+      controllerName = mainIndex.currentController
       currentRepeat = ngrepeatQuery[i];
+      tempScope = mainIndex.scope[controllerName];
+      
+      if(tempScope.hasOwnProperty(collectionName)){       
       currentDetailQuery = currentRepeat.querySelectorAll('[ngdetail]');
-      for (j=0; j < tempmainScope[collectionName].length; j++) {
-        for (k = 0; k < currentDetailQuery.length; k++){
-          currentDetailName = currentDetailQuery[k].getAttribute('ngdetail');
-          key=this.renderKey(currentDetailName);
-          if (tempmainScope[collectionName][i].hasOwnProperty(key)) {
-            that.replicateNode( parentNode,currentDetailQuery[k],j,key );
+      that.removeElements(parentNode,currentDetailQuery);
+        for(var j=0;j<tempScope[collectionName].length;j++){
+          for(var noOfBinds=0; noOfBinds<currentDetailQuery.length; noOfBinds++) {
+            bindAttribute = (currentDetailQuery[noOfBinds].getAttribute('ngdetail')).trim();
+            bindAttr=that.renderKey(bindAttribute);
+          
+            if(tempScope[collectionName][j].hasOwnProperty(bindAttr)){ 
+              that.replicateNode(parentNode , currentDetailQuery[noOfBinds] , j , bindAttr);
+            }
           }
         }
       }
     }
   }
 
-  this.replicateNode = function(parentNode, childNode, index, key) {
-    tagName = childNode.tagName;
-    childNode.style.display = "none";
-    childDuplicateNode = document.createElement(tagName);
-    childDuplicateNode.innerHTML = tempmainScope[collectionName][index][key];
-    parentNode.appendChild(childDuplicateNode);
+  this.removeElements = function(parent , child){
+    for(var i=0;i<child.length;i++){
+      parent.removeChild(child[i]);
+    }
   }
+
+
+
+  this.replicateNode = function(parentNode, childNode, index, key) {
+    var stringImg;
+    childNode = childNode.cloneNode();
+    childNode.removeAttribute('ngdetail');
+    tagName = childNode.tagName;
+    
+    if(tagName === "IMG"){
+    stringImg=childNode.getAttribute('src');
+    stringImg=stringImg.replace( userVariable[0]+"."+key , tempScope[collectionName][index][key]);
+    childNode.setAttribute('src',stringImg);
+    }
+   
+    childNode.innerHTML = tempScope[collectionName][index][key];
+    parentNode.appendChild(childNode);
+    parentHTML=parentNode.innerHTML
+    parentNode.innerHTML = parentNode.innerHTML.replace( userVariable+"."+key,  tempScope[collectionName][index][key]);
+
+    
+  }
+ 
 
   this.renderKey = function(currentDetailName) {
     attribute = currentDetailName.split(".");
     userVariable = attribute[0];
     actualKey = attribute[1];
+   
     if (userVariable === userLoopVariable) {
       return (actualKey);
     }
@@ -305,7 +377,9 @@ function RouteProvider(userRoutes, routeFunction) {
   var that = this;
   var routeUrlName;
   var currentRoute;
+  var userRoutes;
   var currentRouteInfo;
+  var userRoutesLength;
   var templateControllerObject = [];
   var templateControllerKeyArray = [];
   var routeFunction = new RouteFunction();
@@ -314,12 +388,18 @@ function RouteProvider(userRoutes, routeFunction) {
     browserUrl = value;
     valueObject = valueObj;//{ templateUrl,controller  }
     userRoutes[browserUrl] = valueObject;//0->templateURl,,,1->controller
+   
+    if(userRoutes!=null){
+      userRoutesLength = Object.keys(userRoutes).length;
+    }
+  }
+
+  this.parseStr = function(str,delimiter){ 
+    return str.split(delimiter);
   }
         
   this.check = function() {   
-    console.log("7");
     mainIndex.fragmentId = location.hash.substr(1);
-  
     keyUserRoute = Object.keys(userRoutes);
     if (Object.keys(userRoutes).length === 0) {
       routeFunction.navigate(mainIndex.fragmentId);
@@ -332,6 +412,37 @@ function RouteProvider(userRoutes, routeFunction) {
       routeUrlName = that.routeUrlSplit(routeUrl);
       routeFunction.navigate(routeUrlName);
     }
+    else{
+      renderFragmentId=that.parseStr(mainIndex.fragmentId , '/');  //[user ,shruti]
+      
+    if(userRoutes!=null){
+      userRouteKeys=Object.keys(userRoutes);
+      userRouteKeyLength=Object.keys(userRoutes).length;
+      for(userRoutesCount=0; userRoutesCount<userRouteKeyLength; userRoutesCount++){
+        renderFragmentId = that.parseStr(mainIndex.fragmentId , '/');  //[user ,shruti]
+        userDefinedRouteKey = userRouteKeys[userRoutesCount];
+        userDefinedBrowserUrl = that.parseStr(userDefinedRouteKey , '/');  //[user ,shruti]
+        if(renderFragmentId.length == userDefinedBrowserUrl.length){
+          fragmentUserName=renderFragmentId[1];//shruti%20%kc
+          templateControllerObject=userRoutes[userDefinedRouteKey];
+          mainIndex.fragmentId=userDefinedRouteKey;
+          templateControllerKeyArray = Object.keys(templateControllerObject);
+          templateKey = templateControllerKeyArray[0].toString(); 
+          fragmentUserName=that.replaceFunction(fragmentUserName);
+          mainIndex.routeParam[userDefinedBrowserUrl[1]] = fragmentUserName.trim();
+          routeUrl = templateControllerObject[templateKey];
+          routeUrlName = that.routeUrlSplit(routeUrl);
+          routeFunction.navigate(routeUrlName);
+        }
+      }
+    }
+  }
+}
+  this.replaceFunction=function(fragmentUserName){
+    for(i=0;i<fragmentUserName.length;i++){
+     fragmentUserName=fragmentUserName.replace("%20"," ");
+    }
+    return fragmentUserName;
   }
 
   this.otherwise = function(url) {
@@ -370,6 +481,7 @@ function RouteFunction(routeProvider) {
   }
 
   this.getContent = function(fragmentId, callback) {
+    
     if (that.partialsCache[fragmentId]) {
       callback(that.partialsCache[fragmentId]);
     } 
@@ -379,14 +491,15 @@ function RouteFunction(routeProvider) {
         callback(content);
       });
     }
+  
      that.currentRouteInfo();
   }
 
   this.currentRouteInfo=function(){
-  
     var currentRouteInfo={};
     currentRoute=mainIndex.userRoutes;
     currentRouteInfo=currentRoute[mainIndex.fragmentId];
+   
     if(currentRouteInfo!=null){
       mainIndex.currentController=currentRouteInfo["controller"]
     }
@@ -407,16 +520,13 @@ function RouteFunction(routeProvider) {
   }
 
   this.navigate = function(routeUrlName) {
-    console.log("9-navigate")
     var contentDiv = document.getElementById("content");
     that.getContent(routeUrlName, function (content) {
       contentDiv.innerHTML = content;
       mainIndex.initialize();
     });
     that.setActiveLink(routeUrlName);
-   
   }
-
 }
 
 var mainIndex = new MainIndex();
