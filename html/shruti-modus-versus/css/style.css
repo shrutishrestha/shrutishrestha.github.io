@@ -19,7 +19,7 @@ ul{
 .logo img, .slider img{
 	display:block;
 }
-.lorel-ipsum{
+.overlayDesc{
 	text-align: center;
     padding-top: 70px;
     font-weight: 500;
@@ -46,6 +46,9 @@ ul{
     text-decoration: none;
     margin-right: 5px;
     padding: 11px 15px 10px;
+}
+.search a:hover{
+  display:block;
 }
 .navbar ul li a:hover ,.dropbtn.active{
     background-color: #62A29E;
@@ -104,6 +107,14 @@ ul{
 	display: none;
 }
 
+/*.input{
+  display:none;
+}
+
+.search:hover .input{
+  display:block;
+}
+*/
 /*------------------ header bottom begins from here--------------------*/
 .page-name span{
 	float: left;
@@ -325,7 +336,8 @@ ul{
 .list > li > ul {
   display: inline-block;
   vertical-align: top;
-  padding-left: 10px;
+  /*padding-left: 10px;*/
+  float: right;
 }
 .list > li > ul >li{
 margin-left: 20px;
@@ -335,13 +347,13 @@ margin-left: 20px;
 	font-weight: bold;
 	font-family: 'Open Sans';
 }
-.up-para{
+.up-paragraph{
 	font-family: 'Open Sans';
 	padding-top: 18px;
 	font-size: 15px;
 }
 
-.down-para{
+.down-paragraph{
 	font-family: 'Open Sans';
     padding-top: 27px;
 	font-size: 15px;
@@ -572,7 +584,7 @@ opacity: 1;
 	padding-top:0px;
 	
 }
-.para,.phone{
+.paragraph,.phone{
 	padding-top: 32px;
 }
 

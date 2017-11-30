@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" media="only screen and (max-width:768px)" href="css/style_768.css">
 </head>
 <body>
 <div class=main-container-wrap>
@@ -37,9 +36,9 @@
 					<li><a href="#">BLOG</a></li>
 					<li><a href="#">FEATURES</a></li>
 					<li><a href="#">CONTACTS</a></li>
-					<li class="search" id="search"><a href=""><i class="fa fa-search"></i></a>
+					<li class="search" id="searchBtn"><a href="" ><i class="fa fa-search"></i></a>
 						<form action="post">
-							<input class="input" type="input" name="input">
+							<input class="input" type="input" name="input" id="searchBox">
 						</form>
 					</li>
 					</ul>
@@ -89,6 +88,9 @@
 					<div id="left-slide-content" class="left-button"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
                 	<div id="right-slide-content" class="right-button"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
             	</div>
+
+
+
 			</div><!--ads ends here -->
 			<div class="slider" id="slider">
 				 <div id="imageSlider" class="item">
@@ -108,11 +110,18 @@
 				 	</ul>
 				 </div>
 			</div><!--slider ends here-->
+
+
+
+
+
+
+
 			<div class="main-body clrfix">
 				<div class="project-description">
 					<p class="desc">PROJECT DESCRIPTION</p>
-	  			 		<p class="up-para">Maecenas eget turpis turpis. Nunc vel metus augue. Aenean euismod cursus ligula eget dapibus. Praesent vel erat in tortot placerat dignissim.</p>
-	  			 		<p class="down-para">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi trisque senectus et netus et malesuada fames ac turpis egestas. Eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iatulis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi trisque senectus et netus et malesuada fames ac turpis egetas.</p>
+	  			 		<p class="up-paragraph">Maecenas eget turpis turpis. Nunc vel metus augue. Aenean euismod cursus ligula eget dapibus. Praesent vel erat in tortot placerat dignissim.</p>
+	  			 		<p class="down-paragraph">Duis dapibus aliquam mi, eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iaculis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi trisque senectus et netus et malesuada fames ac turpis egestas. Eget euismod sem scelerisque ut. Vivamus at elit quis urna adipiscing iatulis. Curabitur vitae velit in neque dictum blandit. Proin in iaculis neque. Pellentesque habitant morbi trisque senectus et netus et malesuada fames ac turpis egetas.</p>
 				</div>
 				<div class="project-details">
 					<p class="details">PROJECT DETAILS</p>
@@ -155,7 +164,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 			</div>
@@ -169,7 +178,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 										
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 		</div>
@@ -184,7 +193,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 			</div>
@@ -198,7 +207,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 		</div>
@@ -215,7 +224,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 			</div>
@@ -229,7 +238,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 										
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 		</div>
@@ -244,7 +253,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 			</div>
@@ -258,7 +267,7 @@
 	  			 							<div class="link"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
 
 	  			 				</div>
-	  			 				<div class="lorel-ipsum">
+	  			 				<div class="overlayDesc">
 	  			 							Lorem ipsum
 	  			 				</div>
 	  			 		</div>
@@ -282,7 +291,7 @@
 	  			 		<div class="footer-logo">
 	  			 			<img src="images/logo.png" alt="abc">
 	  			 		</div>
-	  			 		<p class="para">
+	  			 		<p class="paragraph">
 	  			 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	  			 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	  			 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

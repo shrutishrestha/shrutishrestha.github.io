@@ -1,8 +1,11 @@
 //fadein fadeout
 
-var search=document.getElementsByClassName('search');
+var search=document.getElementById('searchBtn');
+var input=document.getElementById('searchBox');
 search.onclick=function(){
-  search.style.display="block";
+ if(input.style.display=="none"){
+  input.style.display="block";
+ }
 }
 
 
