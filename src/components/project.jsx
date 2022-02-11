@@ -14,7 +14,7 @@ export default class Project extends Component {
 						</div>
 						<div className="row">
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInLeft">
-								<div className="project" style={{backgroundImage: 'url(images/img-1.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-10.jpg)'}}>
 									<div className="desc">
 										<div className="con">
 											<h3><a href="work.html">Credict Card Fraud Detection</a></h3>
@@ -29,10 +29,10 @@ export default class Project extends Component {
 								</div>
 							</div>
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInRight">
-								<div className="project" style={{backgroundImage: 'url(images/img-2.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-streaming.jpg)'}}>
 									<div className="desc">
-										<div className="con">
-											<h3><a href="work.html">Music Streaming Prediction</a></h3>
+										<div className="con"> 
+											<h3><a href="work.html">Spotify Music Streaming Prediction</a></h3>
 											<span>Details</span>Project 2
 											<p className="icon">
 												<span><a href="https://github.com/shrutishrestha/music-streaming-prediction"><i className="icon-github" /></a></span>
@@ -44,7 +44,7 @@ export default class Project extends Component {
 								</div>
 							</div>
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInTop">
-								<div className="project" style={{backgroundImage: 'url(images/img-3.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-11.png)'}}>
 									<div className="desc">
 										<div className="con">
 											<h3><a href="work.html">Women in Data Science Datathon 2022</a></h3>
@@ -59,11 +59,11 @@ export default class Project extends Component {
 								</div>
 							</div>
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInBottom">
-								<div className="project" style={{backgroundImage: 'url(images/img-4.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-ebay.jpg)'}}>
 									<div className="desc">
 										<div className="con">
 											<h3><a href="work.html">Comparison of Amazon and eBay cellphones</a></h3>
-											<span>Details</span>Project 4
+											<span>Details</span>Implemented Django and scrapy libraries for building User Interface to let them compare similar phones fetched from these websites
 											<p className="icon">
 												<span><a href="https://github.com/shrutishrestha/Amazon-eBay-cellphone-comparison"><i className="icon-github" /></a></span>
 												<span><a href="#"><i className="icon-eye" /> 100</a></span>
@@ -75,11 +75,11 @@ export default class Project extends Component {
 							</div>
 							
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInBottom">
-								<div className="project" style={{backgroundImage: 'url(images/img-4.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-solar.gif)'}}>
 									<div className="desc">
 										<div className="con">
-											<h3><a href="work.html">Super Resolution</a></h3>
-											<span>Details</span>Project 4
+											<h3><a href="work.html">Solar Flare Super resolution metric</a></h3>
+											<span>Details</span>As magnetograms contains Gauss values, normal metrics are not useful measuring the supersolution. This project aims to develop new evaluation metrics for the same.
 											<p className="icon">
 												<span><a href="https://github.com/shrutishrestha/super_resolution_harp"><i className="icon-github" /></a></span>
 												<span><a href="#"><i className="icon-eye" /> 100</a></span>
@@ -109,11 +109,11 @@ export default class Project extends Component {
 
 
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInBottom">
-								<div className="project" style={{backgroundImage: 'url(images/img-4.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-polyp.jpg)'}}>
 									<div className="desc">
 										<div className="con">
-											<h3><a href="work.html">POLYP CCNET</a></h3>
-											<span>Details</span>Project 4
+											<h3><a href="work.html">Polyp segmentation</a></h3>
+											<span>Details</span>Ensemble method on ResNet-34 and EfficientNet-B2 with data augmentation, CutMix regularizer, and Tversky loss.
 											<p className="icon">
 												<span><a href="https://github.com/shrutishrestha/POLYP_CCNET"><i className="icon-github" /></a></span>
 												<span><a href="#"><i className="icon-eye" /> 100</a></span>
