@@ -58,8 +58,10 @@ export default class Blog extends Component {
               
 
               {/* <a href="https://medium.com/@shruti.shrestha/boosting-cc561db21c5e"  target="_blank" rel="noopener noreferrer" className="blog-img">  */}
+            
+              <a href="https://medium.com/@shruti.shrestha/boosting-cc561db21c5e"  target="_blank" rel="noopener noreferrer" className="blog-img">
               <img src="images/project-boosting.png" style={{height: '300px', "left": "0 !important", "position": "unset !important"}}  />
-              <a href="https://medium.com/@shruti.shrestha/boosting-cc561db21c5e"  target="_blank" rel="noopener noreferrer" className="blog-img"/>
+              </a>
             
               
               {/* <img src="images/about.jpg" style={{"left": "0 !important", "position": "unset !important"}}   />*/}
@@ -82,8 +84,8 @@ export default class Blog extends Component {
             <div className="col-md-4">
           
             <div className ="blog-entry"  >
-            <img src="images/project-lda.jpg" style={{height: '300px', "left": "0 !important", "position": "unset !important"}}  />
-              <a href="https://medium.com/@shruti.shrestha/linear-discriminant-analysis-lda-8e9fc0838fb"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/about.jpg" style={{"left": "0 !important", "position": "unset !important"}}   /> </a>
+            {/* <img src="images/project-lda.jpg" style={{height: '300px', "left": "0 !important", "position": "unset !important"}}  /> */}
+              <a href="https://medium.com/@shruti.shrestha/linear-discriminant-analysis-lda-8e9fc0838fb"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/project-lda.jpg" style={{height: "300px", "left": "0 !important", "position": "unset !important"}}   /> </a>
               <div className ="desc">
                 <span><small>Dec 15, 2021</small></span>
                 <h3>  <a href="https://medium.com/@shruti.shrestha/linear-discriminant-analysis-lda-8e9fc0838fb"  target="_blank" rel="noopener noreferrer" className="blog-img">Linear Discriminant Analysis (LDA)</a></h3>
@@ -98,8 +100,8 @@ export default class Blog extends Component {
             <div className="col-md-4">
          
             <div className ="blog-entry"  >
-            <img src="images/project-pca.png" style={{height: '300px', "left": "0 !important", "position": "unset !important"}}  />
-              <a href="https://medium.com/@shruti.shrestha/principal-component-analysis-ce7ad9e5ded1"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/about.jpg" style={{"left": "0 !important", "position": "unset !important"}}   /> </a>
+            {/* <img src="images/project-pca.png" style={{height: '300px', "left": "0 !important", "position": "unset !important"}}  /> */}
+              <a href="https://medium.com/@shruti.shrestha/principal-component-analysis-ce7ad9e5ded1"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/project-pca.png" style={{height: "300px","left": "0 !important", "position": "unset !important"}}   /> </a>
               <div className ="desc">
                 <span><small>Nov 24, 2021</small></span>
                 <h3><a href="https://medium.com/@shruti.shrestha/principal-component-analysis-ce7ad9e5ded1"  target="_blank" rel="noopener noreferrer" className="blog-img">Principal Component Analysis</a></h3>
@@ -127,8 +129,8 @@ export default class Blog extends Component {
             <div className="col-md-4">
           <div className="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
             <div className ="blog-entry"  >
-            <img src="images/project-knn.jpg" style={{height: '300px',     width:' 236px', "left": "0 !important", "position": "unset !important"}}  />
-              <a href="https://medium.com/@shruti.shrestha/knn-k-nearest-algorithm-a70dc9525be4"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/about.jpg" style={{"left": "0 !important", "position": "unset !important"}}   /> </a>
+            {/* <img src="images/project-knn.jpg" style={{height: '300px',     width:' 236px', "left": "0 !important", "position": "unset !important"}}  /> */}
+              <a href="https://medium.com/@shruti.shrestha/knn-k-nearest-algorithm-a70dc9525be4"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/project-knn.jpg" style={{height: "300px", width: "346px","left": "0 !important", "position": "unset !important"}}   /> </a>
               <div className ="desc">
                 <span><small>Nov 16, 2021</small></span>
                 <h3><a href="https://medium.com/@shruti.shrestha/knn-k-nearest-algorithm-a70dc9525be4"  target="_blank" rel="noopener noreferrer" className="blog-img">KNN — [K Nearest algorithm]</a></h3>
@@ -144,7 +146,7 @@ export default class Blog extends Component {
           <div className="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
             <div className ="blog-entry"  >
            
-            <img src="images/project-git.jpg" 
+            {/* <img src="images/project-git.jpg" 
             
             style={{
               height: '300px',
@@ -153,8 +155,8 @@ export default class Blog extends Component {
             
              
             }}
-              /> 
-              <a href="https://medium.com/@shruti.shrestha/git-structure-functionalities-and-commands-db544609c287"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/about.jpg" style={{"left": "0 !important", "position": "unset !important"}}   /> </a>
+              />  */}
+              <a href="https://medium.com/@shruti.shrestha/git-structure-functionalities-and-commands-db544609c287"  target="_blank" rel="noopener noreferrer" className="blog-img"><img src="images/project-git.jpg" style={{height: "300px","left": "0 !important", "position": "unset !important"}}   /> </a>
               <div className ="desc">
                 <span><small>Apr 22, 2021</small></span>
                 <h3><a href="https://medium.com/@shruti.shrestha/git-structure-functionalities-and-commands-db544609c287"  target="_blank" rel="noopener noreferrer" className="blog-img">Git structure and functionalities</a></h3>
