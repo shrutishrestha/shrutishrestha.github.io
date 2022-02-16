@@ -17,16 +17,10 @@ export default class About extends Component {
                       <span className="heading-meta">About Me</span>
                       <h2 className="colorlib-heading">Who Am I?</h2>
                       <p>
-
-                        I am studying master of data science and analytics at Georgia State University. I love Big Data and AI.
+                      Hi I am Shruti Shrestha. I am currently doing my master in Data Science and Analytics at Georgia State University. i am working as a graduate research assitant in the Data Mining lab of Department of Computer Science of Georgia State University. I am fond of data science and machine learning. Prior to this degree I have 3 plus years of workign experience as a machine learning engineer, deep learning engineer and a software developer. 
+I am currently looking for opportunities for summer internship, 2022 where I could use my working experiences, and academic knowledge for solve real life business problems.
                       </p>
-                      <p>
-                      A passionate computer and technology fanatic, driven by the hunger to learn more in this arena. A web developer with research
-interest in new technologies. A self-motivated person with the ability to think through a problem. Proactive to learn new things in life
-both personally and professionally.
-
-                      Skilled Front End Developer experienced in developing scalable, high quality, user-friendly and bug-free web platform collaborating with large team of different expertise. Experienced in writing optimized and scalable code backed up with test.
-                      </p>
+                      
                     </div>
                   </div>
                 </div>

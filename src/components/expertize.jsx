@@ -29,7 +29,8 @@ export default class Expertize extends Component {
               <div className="desc">
                     <h3>Computer Vision </h3>
                     <p>
-                    Computer vision tasks include methods for acquiring, processing, analyzing and understanding digital images, and extraction of high-dimensional data from the real world in order to produce numerical or symbolic information, e.g. in the forms of decisions
+                    Computer vision is a task for analyzing, processinng images, videos for better classification, segmentation or other prediction related tasks. It includes image processing, model traning and visualizations. I have worked on projects like medical imaging, solar flare prediction, super resolution using these deep learning based convolutional networks.
+
                     </p>
                   </div>
               </div>
@@ -42,18 +43,15 @@ export default class Expertize extends Component {
                     <i className="icon-phone3" />
                   </span>
                   <div className="desc">
-                    <h3>Application development </h3>
+                    <h3>Machine Learning </h3>
                     <p>
-                      I have experience building applications using Java for backend services
+                    Machine learning is a method of data analysis whcih is broadly use to data analysis purposes and imitate intelligent human behavior. I have worked in news classification, resommendation systems, spam filtering related machine learning tasks.
                     </p>
                   </div>
                 </div>
               </div>
               
               
-           
-
-
               
               <div className="col-md-4 text-center animate-box">
                 <div className="services color-3">
@@ -63,7 +61,7 @@ export default class Expertize extends Component {
                   <div className="desc">
                     <h3>Data Structures & Algorithms</h3>
                     <p>
-                 Strong background in data structure and algorithms. Participated in many national hackthan competitions
+                    As a software developer, I have worked as a bachend developer for Hamro Patro app.
                     </p>
                   </div>
                 </div>

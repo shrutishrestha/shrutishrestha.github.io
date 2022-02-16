@@ -17,7 +17,7 @@ export default class Sidebar extends Component {
             <div className="text-center">
               <div className="author-img" style={{backgroundImage: 'url(images/about.jpg)', 'marginTop': 38}} />
               <h1 id="colorlib-logo"><a href="index.html">Shruti Shrestha</a></h1>
-              <span className="email"><i className="icon-mail"></i> shruti.shresthaa@gmail.com</span>
+              <span className="email"><i className="icon-mail"></i> sshrestha8@student.gsu.edu</span>
             </div>
             <nav id="colorlib-main-menu" role="navigation" className="navbar">
               <div id="navbar" className="collapse">
@@ -34,10 +34,11 @@ export default class Sidebar extends Component {
 <ul>
                   <li className="active"><a href="#introduction" data-nav-section="introduction">Introduction</a></li>
                   <li><a href="#expertize" data-nav-section="expertize">Expertize</a></li>
+                  <li><a href="#timeline" data-nav-section="timeline">Work experience</a></li>
                   <li><a href="#project" data-nav-section="projects">Projects</a></li>
                   {/*<li><a href="#" data-nav-section="projects">Projects</a></li>
                   <li><a href="#" data-nav-section="blog">Blog</a></li>*/}
-                  <li><a href="#timeline" data-nav-section="timeline">Timeline</a></li>
+                 
                 </ul>
               </div>
             </nav>
