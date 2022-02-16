@@ -29,7 +29,7 @@ export default class Expertize extends Component {
               <div className="desc">
                     <h3>Computer Vision </h3>
                     <p>
-                    Computer vision is a task for analyzing, processinng images, videos for better classification, segmentation or other prediction related tasks. It includes image processing, model traning and visualizations. I have worked on projects like medical imaging, solar flare prediction, super resolution using these deep learning based convolutional networks.
+                    Computer vision is a task for analyzing, processinng images, videos for better classification, segmentation or other prediction related tasks. It includes image processing, model traning and visualizations. I have worked on projects like medical imaging, solar flare prediction, super resolution using these deep learning based convolutional neural networks.
 
                     </p>
                   </div>
@@ -45,7 +45,7 @@ export default class Expertize extends Component {
                   <div className="desc">
                     <h3>Machine Learning </h3>
                     <p>
-                    Machine learning is a method of data analysis whcih is broadly use to data analysis purposes and imitate intelligent human behavior. I have worked in news classification, resommendation systems, spam filtering related machine learning tasks.
+                    Machine learning is a method of data analysis which is broadly used for data analysis purposes and to imitate intelligent human behavior. I have worked in news classification, recommendation systems, spam filtering related machine learning tasks.
                     </p>
                   </div>
                 </div>
@@ -59,9 +59,9 @@ export default class Expertize extends Component {
                     <i className="icon-phone3" />
                   </span>
                   <div className="desc">
-                    <h3>Data Structures & Algorithms</h3>
+                    <h3>Application Development</h3>
                     <p>
-                    As a software developer, I have worked as a bachend developer for Hamro Patro app.
+                    As a software developer, I have worked as a backend developer for Hamro Patro app.
                     </p>
                   </div>
                 </div>
