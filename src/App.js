@@ -5,7 +5,7 @@ import About from "./components/about";
 import Timeline from "./components/timeline";
 import Projects from "./components/project";
 import Expertize from "./components/expertize";
-
+import Blog from "./components/blog";
 class App extends Component {
   render() {
     return (
@@ -17,6 +17,7 @@ class App extends Component {
             <Expertize />
             <Timeline />
             <Projects />
+            <Blog />
           </div>
         </div>
       </div>
