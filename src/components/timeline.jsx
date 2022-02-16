@@ -31,7 +31,7 @@ export default class Timeline extends Component {
                         Graduate Research Assistant at Georgia State University Atlanta, Georgia <span>August 2021-present</span>
                         </h2>
                         <p>
-                        a
+                
 • Conduct Research, implement, and test deep learning architectures and physics-based evaluation metrics for Solar
 Magnetograms Super Resolution Project. <br />
 • Performed data labeling, data exploration, data cleaning, and hyper-parameter tuning to optimize the accuracy and loss

@@ -35,7 +35,7 @@ export default class Sidebar extends Component {
                   <li className="active"><a href="#introduction" data-nav-section="introduction">Introduction</a></li>
                   <li><a href="#expertize" data-nav-section="expertize">Expertize</a></li>
                   <li><a href="#timeline" data-nav-section="timeline">Work experience</a></li>
-                  <li><a href="#project" data-nav-section="projects">Projects</a></li>
+                  <li><a href="#project" data-nav-section="projects">Recent Projects</a></li>
                   {/*<li><a href="#" data-nav-section="projects">Projects</a></li>
                   <li><a href="#" data-nav-section="blog">Blog</a></li>*/}
                  
@@ -44,12 +44,18 @@ export default class Sidebar extends Component {
             </nav>
             <nav id="colorlib-main-menu">
               <ul>
+              <li><a href="https://www.linkedin.com/in/shruti-shrestha-6bb52010a/" target="_blank" rel="noopener noreferrer"><i className="icon-linkedin2" /></a></li>
+              <li><a href="https://scholar.google.com/citations?user=zTMdFS8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i className="icon-google" /></a></li>
+              <li><a href="https://github.com/shrutishrestha" target="_blank" rel="noopener noreferrer"><i className="icon-github"></i></a></li>
+              <li><a href="https://medium.com/@shruti.shrestha/" target="_blank" rel="noopener noreferrer"><i className="icon-blogger2"></i></a></li>
+              <li><a href="https://twitter.com/shrutishresthaa" target="_blank" rel="noopener noreferrer"><i className="icon-twitter2" /></a></li>
+
                 <li><a href="https://www.facebook.com/shruti.shrestha.77" target="_blank" rel="noopener noreferrer"><i className="icon-facebook2" /></a></li>
-                <li><a href="https://twitter.com/shrutishresthaa" target="_blank" rel="noopener noreferrer"><i className="icon-twitter2" /></a></li>
-                <li><a href="https://scholar.google.com/citations?user=zTMdFS8AAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i className="icon-google" /></a></li>
-                <li><a href="https://www.linkedin.com/in/shruti-shrestha-6bb52010a/" target="_blank" rel="noopener noreferrer"><i className="icon-linkedin2" /></a></li>
-                <li><a href="https://github.com/shrutishrestha" target="_blank" rel="noopener noreferrer"><i className="icon-github"></i></a></li>
-                <li><a href="https://medium.com/@shruti.shrestha/" target="_blank" rel="noopener noreferrer"><i className="icon-blogger2"></i></a></li>
+              
+             
+              
+                
+               
               </ul>
             </nav>
             <div className="colorlib-footer">
