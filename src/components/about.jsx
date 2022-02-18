@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import SHRUTI_SHRESTHA_RESUME from "./public/docs/SHRUTI_SHRESTHA_RESUME.pdf";
+// import Pdf from '../../public/docs/SHRUTI_SHRESTHA_RESUME.pdf';
 
 export default class About extends Component {
   render() {
@@ -33,7 +35,16 @@ I am currently looking for opportunities for summer internship, 2022 where I cou
                 </div>
               </div>
             </div>
+            <div className="desc slider-text-inner">
+            <p>
+            {/* <a href="/public/docs/SHRUTI_SHRESTHA_RESUME.pdf" target="_blank" rel="noopener noreferrer">Download CV  */}
+              <a href='docs/SHRUTI_SHRESTHA_RESUME.pdf' className="cv" target="_blank" rel="noopener noreferrer"> View Resume 
+              <i className="icon-download4" style={{paddingLeft: 8}} /></a>
+            </p>
           </div>
+          </div>
+        
+
         </section>
       </div>
     );

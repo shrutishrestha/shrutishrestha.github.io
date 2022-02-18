@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.cv {
+  border: 1px solid #000;
+  background: transparent !important;
+
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000;
+  padding: 10px 15px !important;
+
+  font-weight: 400;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
