@@ -12,7 +12,7 @@ export default class Blog extends Component {
               >
                 <span className="heading-meta">Read</span>
                 <h2 className="colorlib-heading animate-box">Recent Blog</h2>
-              </div>
+              </div> 
 
           <div className="row">
           <div className="col-md-4">
