@@ -18,6 +18,34 @@ export default class Timeline extends Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="timeline-centered">
+
+                   <article
+                    className="timeline-entry animate-box"
+                    data-animate-effect="fadeInLeft"
+                  >
+                    <div className="timeline-entry-inner">
+                      <div className="timeline-icon color-3">
+                        <i className="icon-pen2" />
+                      </div>
+                      <div className="timeline-label">
+                        <h2>
+                        Machine Learning Engineer Intern at Georgia State University, Research Solutions <span>May 2022 - Present</span>
+                        </h2>
+                        <p>
+                
+                        • Optimization of systems: CPU, GPU, memory usage and load-times. Decreased deep learning training run time by 30%. <br/>
+                        • Perform NVIDIA DALI for software performance benchmarking, profiling, and optimizations. <br/>
+                        • Conduct research in Graph neural network for intrusion-detection-system. <br/>
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+
+
+
+
+
                   <article
                     className="timeline-entry animate-box"
                     data-animate-effect="fadeInLeft"
@@ -28,7 +56,7 @@ export default class Timeline extends Component {
                       </div>
                       <div className="timeline-label">
                         <h2>
-                        Graduate Research Assistant at Georgia State University Atlanta, Georgia <span>August 2021-present</span>
+                        Graduate Research Assistant at Georgia State University Atlanta, Georgia <span>August 2021-April 2022</span>
                         </h2>
                         <p>
                 
@@ -43,6 +71,7 @@ for the super-resolution procedure of the Helio-seismic and Magnetic Image (HMI)
                       </div>
                     </div>
                   </article>
+
                   <article
                     className="timeline-entry animate-box"
                     data-animate-effect="fadeInTop"
