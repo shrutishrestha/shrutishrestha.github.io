@@ -20,7 +20,7 @@ export default class Project extends Component {
 											<h3><a href="work.html">Solar Flare Super resolution metric</a></h3>
 											<span>Details</span>As magnetograms contains Gauss values, normal metrics are not useful measuring the supersolution. This project aims to develop new evaluation metrics for the same.
 											<p className="icon">
-												<span><a href="https://github.com/shrutishrestha/super_resolution_harp"><i className="icon-github" /></a></span>
+												<span><a href="https://github.com/shrutishrestha/solar-flare-classification"><i className="icon-github" /></a></span>
 												<span><a href="#"><i className="icon-eye" /> 100</a></span>
 												<span><a href="#"><i className="icon-heart" /> 49</a></span>
 											</p>
@@ -144,6 +144,47 @@ export default class Project extends Component {
 									</div>
 								</div>
 							</div>
+
+
+
+							<div className="col-md-4 animate-box" data-animate-effect="fadeInTop">
+								<div className="project" style={{backgroundImage: 'url(images/prjectHuse.jpg)'}}>
+									<div className="desc">
+										<div className="con">
+											<h3><a href="work.html">House-Prices Prediction</a></h3>
+											<span>Details</span>Contains 79 variables describing every aspect of residential homes in Ames,Iowa. Kaggle challenge which is for predicting the final price of each home with regression techniques. 
+											<p className="icon">
+												<span><a href="https://github.com/shrutishrestha/House-Prices---Advanced-Regression-Techniques"><i className="icon-github" /></a></span>
+												<span><a href="#"><i className="icon-eye" /> 100</a></span>
+												<span><a href="#"><i className="icon-heart" /> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
+							<div className="col-md-4 animate-box" data-animate-effect="fadeInTop">
+								<div className="project" style={{backgroundImage: 'url(images/prjectRS.jpeg)'}}>
+									<div className="desc">
+										<div className="con">
+											<h3><a href="work.html">Recommendation System</a></h3>
+											<span>Details</span>Built using collaborative and content filtering,where it studies the behavior of similar users, and showing similar items to our last purchase or liked before. 
+											<p className="icon">
+												<span><a href="https://github.com/shrutishrestha/Recommendation_System"><i className="icon-github" /></a></span>
+												<span><a href="#"><i className="icon-eye" /> 100</a></span>
+												<span><a href="#"><i className="icon-heart" /> 49</a></span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+
 
 
 
