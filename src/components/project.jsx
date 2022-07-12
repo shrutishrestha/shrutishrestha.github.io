@@ -148,7 +148,7 @@ export default class Project extends Component {
 
 
 							<div className="col-md-4 animate-box" data-animate-effect="fadeInTop">
-								<div className="project" style={{backgroundImage: 'url(images/prjectHuse.jpg)'}}>
+								<div className="project" style={{backgroundImage: 'url(images/project-house.png)'}}>
 									<div className="desc">
 										<div className="con">
 											<h3><a href="work.html">House-Prices Prediction</a></h3>
